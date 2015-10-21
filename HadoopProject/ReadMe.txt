@@ -1,19 +1,16 @@
+Sailesh Kolla
 
 Big data Management Analytics and Management
 
 
-Applying
-
+Input files and file formats :
 Hadoop map-reduce to derive some statistics from Yelp Dataset.
 The dataset files are located in hdfs in the following path,
 /yelpdatafall/business/business.csv.
 /yelpdatafall/review/review.csv.
 /yelpdatafall/user/user.csv.
 
-In class there will be brief demo/ discussion about how to access the cluster and the dataset.
-
-
-Dataset Description.
+Dataset Description:
 The dataset comprises of three csv files, namely user.csv, business.csv and review.csv.  
 
 Business.csv file contain basic information about local businesses. 
@@ -38,41 +35,52 @@ user_id': (unique user identifier),
 'url': url of the user on yelp
 
 
-After being familiar with the data - I wrote efficient Hadoop Map-Reduce programs in Java to find the following information ::
+Reduce programs in Java to find the following information using the commands below ::
 
 
 Q1. 
- List each business Id that are located in �Palo Alto� using the full_address column as the filter column. 
+List each business Id that are located in â€œPalo Altoâ€� using the full_address column as the filter column. 
+To run the jar file in cluster use:
+hadoop jar HadoopProjectpP1Q1.jar /yelpdatafall/business/business.csv /sxk145331_P1_Q1
+To see output in the cluster:
+hdfs dfs -cat /sxk145331_P1_Q1/* >> sxk145331_P1_Q1.txt
 
-Sample output:
+//deleting file folder
+hdfs dfs -rm -r /sxk145331_P1_Q1 >> sxk145331_P1_Q1.txt
 
-23244444
-232ewe33
+Sample output: is in sxk145331_P1_Q1.txt
 
 Q2 
 
-Find the top ten rated businesses using the average ratings. 
-Recall that star column in review.csv file represents the rating.
+Find the top ten rated businesses using the average ratings.
+ 
+To run the jar file in cluster use:
+hadoop jar HadoopProjectP1Q2.jar /yelpdatafall/review/review.csv /sxk145331_P1_Q2
+To see output in the cluster:
+hdfs dfs -cat /sxk145331_P1_Q2/* >> sxk145331_P1_Q2.txt
 
-Please answer the question by calculating the average ratings given to each business using the review.csv file. 
-
-Sample output:
-business id              
-xdf12344444444
+//deleting file folder
+hdfs dfs -rm -r /sxk145331_P1_Q2
+ 
+Sample output: is in sxk145331_P1_Q2.txt
 
 
 Q3:
 List the  business_id , full address and categories of the Top 10 businesses using the average ratings.  
 
 This will require you to use  review.csv and business.csv files.
+used reduce side join and job chaining technique to answer this problem.
 
-Please use reduce side join and job chaining technique to answer this problem.
+To run the jar file in cluster use:
+hadoop jar HadoopProjectP1Q3.jar /yelpdatafall/review/review.csv /yelpdatafall/business/business.csv /sxk145331_P1_Q3
+To see output in the cluster:
+hdfs dfs -cat /sxk145331_P1_Q3/* >> sxk145331_P1_Q3.txt
 
+//deleting file folder
+hdfs dfs -rm -r /sxk145331_P1_Q3
+hdfs dfs -rm -r /sxk145331_tempoutput
 
-Sample output:
-business id               full address           categories                                    avg rating
-xdf12344444444,      CA 91711       List['Local Services', 'Carpet Cleaning']	5.0
-
+Sample output: is in sxk145331_P1_Q3.txt
 
 
 
@@ -85,14 +93,15 @@ Required files are 'business'  and 'review'.
 Please use Map side join technique to answer this problem.
 Hint: Please load all data in business.csv file into the distributed cache. 
 
-Sample output
-                                                   
-	       
-User id	stars
-0WaCdhr3aXb0G0niwTMGTg	4.0
+To run the jar file in cluster use:
+hadoop jar HadoopProjectP1Q4.jar /yelpdatafall/business/business.csv /yelpdatafall/review/review.csv /sxk145331_P1_Q4
+To see output in the cluster:
+hdfs dfs -cat /sxk145331_P1_Q4/* >> sxk145331_P1_Q4.txt
+
+//deleting file folder
+hdfs dfs -rm -r /sxk145331_P1_Q4
+
+Sample output: is in sxk145331_P1_Q4.txt
 
 
-The sample output after execution is present in the OutputFiles folder.
-The jar files for processing each question are present in the jarFiles folder.
-
-     
+Note: You can fnd the source files in HadoopHW1.zip

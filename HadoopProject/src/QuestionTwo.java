@@ -77,7 +77,7 @@ import org.apache.hadoop.conf.Configuration;
 							count++;
 						}else{
 							flag = true;
-						break;
+							break;
 						}
 					}
 					if(flag) break;

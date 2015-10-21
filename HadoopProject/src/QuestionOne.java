@@ -55,9 +55,6 @@
 			job.setJarByClass(QuestionOne.class); 
 			job.setMapperClass(Map.class);
 
-			// uncomment the following line to add the Combiner job.setCombinerClass(Reduce.class);
-
-
 			// set output key type 
 			job.setOutputKeyClass(Text.class);
 			// set output value type 
