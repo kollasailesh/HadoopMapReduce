@@ -45,7 +45,6 @@ public class QuestionFour
 		            }
 		            line=br.readLine();
 		        }
-		       
 		    }
 	       
 	    }

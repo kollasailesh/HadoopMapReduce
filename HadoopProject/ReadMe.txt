@@ -72,9 +72,9 @@ This will require you to use  review.csv and business.csv files.
 used reduce side join and job chaining technique to answer this problem.
 
 To run the jar file in cluster use:
-hadoop jar HadoopProjectP1Q3.jar /yelpdatafall/review/review.csv /yelpdatafall/business/business.csv /sxk145331_P1_Q3
+hadoop jar HadoopProjectP1Q3.jar /yelpdatafall/review/review.csv /yelpdatafall/business/business.csv /sailesh
 To see output in the cluster:
-hdfs dfs -cat /sxk145331_P1_Q3/* >> sxk145331_P1_Q3.txt
+hdfs dfs -cat /sailesh/* >> sailesh.txt
 
 //deleting file folder
 hdfs dfs -rm -r /sxk145331_P1_Q3
